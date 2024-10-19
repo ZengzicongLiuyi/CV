@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Geolocation</title>
+    <style type="text/css">
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            width: 80%;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        #header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        h1 {
+            color: brown;
+            margin: 0;
+        }
+
+        #text {
+            background-color: aqua;
+            padding: 20px;
+            box-sizing: border-box;
+            flex-grow: 0;
+        }
+
+        #videoMapContainer {
+            display: flex;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        video {
+            width: 60%;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        #mapContainer {
+            width: 40%;
+            height: 400px;
+            /* Fixed height for the map */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="header">
+            <h1>欢迎来到广州</h1>
+        </div>
+        <div id="text">
+            广州，这座历史悠久与现代气息交融的城市，宛如一颗璀璨的明珠，闪耀在南方。她以其独特的岭南文化、丰富的美食和热情的人民而闻名。
+
+            漫步在广州的街头，可以感受到这座城市的活力与包容。无论是古老的陈家祠，还是现代的珠江新城，都展现了广州深厚的文化底蕴与蓬勃的发展潜力。这里的建筑风格多样，既有传统的南方民居，也有摩天大楼的雄伟，体现了历史与未来的完美交汇。
+
+            广州的美食更是让人无法抗拒。无论是广式早茶的小点心，还是夜市中琳琅满目的小吃，都会让每一位访客垂涎欲滴。尤其是那蒸虾饺、烧卖和凤凰卷，都是舌尖上的绝妙享受。
+
+            此外，广州人热情好客，乐于分享他们的生活与文化。每当夜幕降临，珠江两岸的灯火辉煌，流光溢彩，仿佛在向世界展示她的魅力。
+
+            广州，这座充满魅力的城市，以其丰富的文化、独特的美食和友好的氛围，让每一个来到这里的人都能感受到家的温暖。
+        </div>
+        <div id="videoMapContainer">
+            <video src="D:\cv\chapter3\394919953-1-208.mp4" controls></video>
+            <div id="mapContainer"></div>
+        </div>
+        <img src="D:\cv\chapter3\bee.jpg" alt="Bee Image">
+    </div>
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=0A5bc3c4fb543c8f9bc54b77bc155724"></script>
+    <script>
+        var map = new BMap.Map("mapContainer");
+        var point = new BMap.Point(113.329434, 23.109118);
+        map.centerAndZoom(point, 15);
+        var marker = new BMap.Marker(point);
+        map.addOverlay(marker);
+        marker.setAnimation(BMAP_ANIMATION_BOUNCE);
+    </script>
+</body>
+
+</html>
